@@ -1,0 +1,620 @@
+/* google fonts */
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,700;1,700&display=swap);
+
+:root {
+  --rad: 0.7rem;
+  --dur: 0.3s;
+  --color-dark: #222831;
+  --color-light: #eeeeee;
+  --color-brand: #00adb5;
+  --font-fam: "Lato", sans-serif;
+  --height: 5rem;
+  --btn-width: 6rem;
+  --bez: cubic-bezier(0, 0, 0.43, 1.49);
+}
+
+/* Reset */
+html {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #373a3c;
+  background-color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  scroll-behavior: smooth;
+}
+a {
+  text-decoration: none;
+  list-style: none;
+}
+
+h1 {
+  margin-top: 5rem;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+h3 {
+  color: #fff;
+}
+
+.menuBar {
+  margin-top: 4rem;
+  margin-right: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 10px;
+}
+
+.menuBar a {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  color: #fff;
+  text-decoration: none;
+  font-size: 24px;
+  text-align: center;
+  display: block;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  z-index: 999;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(5px);
+  padding: 10px 20px;
+  top: 0%;
+  left: 0;
+  right: 0;
+  box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.3);
+}
+
+.menu-icon {
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.menu-icon span {
+  display: block;
+  width: 25px;
+  background: #fff;
+  transition: 0.4s;
+}
+.user-icon {
+  cursor: pointer;
+  z-index: 999;
+  color: #fff;
+  font-size: 24px;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#searchInput {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px; /* Jarak antara input dan tombol */
+  box-sizing: border-box; /* Untuk memastikan padding tidak menambah lebar elemen */
+}
+
+.searchbutton {
+  padding: 5px;
+  background-color: #00adb5;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-sizing: border-box; /* Untuk memastikan padding tidak menambah lebar elemen */
+}
+
+.cart {
+  display: block;
+  width: 25px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.cart-count {
+  position: absolute;
+  z-index: 999;
+  right: 3rem;
+  top: 13px;
+  background-color: #ff6347;
+  color: white;
+  font-size: 11px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar {
+  position: fixed;
+  top: 80px;
+  left: -300px; /* Sidebar awalnya tersembunyi di luar layar */
+  width: 70px;
+  height: 100%;
+  transition: 0.3s;
+  border-radius: 15px;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.3);
+}
+.sidebar.active {
+  left: 0px;
+  backdrop-filter: blur(10px); /* Menambahkan efek blur */
+}
+
+.setting-icon {
+  margin-top: 10rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 10px;
+}
+.sidebar a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.sidebar ul li {
+  margin-top: 2rem;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+.sidebar ul li:hover {
+  background: radial-gradient(circle, #fff5e1, #ffa500);
+}
+
+/* PROFILE SIDEBAR */
+.profile-sidebar {
+  background-color: #fff5e1;
+  position: fixed;
+  top: 0;
+  right: -360px; /* Sidebar awalnya tersembunyi di luar layar */
+  width: 360px;
+  height: 100%;
+  transition: 0.3s;
+  z-index: 999;
+  box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+.profile-sidebar.active {
+  right: 0;
+  backdrop-filter: blur(10px);
+}
+.profile {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.foto-profile {
+  margin-right: 20px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-top: 20px;
+  margin-left: 20px;
+  border: 2px solid #000;
+}
+.login-text {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+.sign-in-btn,
+.sign-up-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  background-color: #007bff; /* Sesuaikan dengan warna proyek Anda */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.sign-in-btn:hover,
+.sign-up-btn:hover {
+  background-color: #0056b3; /* Warna latar belakang saat tombol dihover */
+}
+
+/* PRODUCT CARD */
+.carousel-container {
+  width: 95%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.products {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.product-card {
+  flex: 0 0 auto;
+  width: 300px;
+  margin: 5px;
+  padding: 15px;
+  border: 1px solid #000;
+  text-align: center;
+  scroll-snap-align: start;
+  backdrop-filter: blur(10px); /* Menambahkan efek blur */
+}
+
+.product-info {
+  display: flex;
+}
+
+.add-to-cart-btn {
+  font-size: 15px;
+  background-color: #ffa500;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.add-to-cart-btn:hover {
+  background: linear-gradient(to right, #ffa500, #fff5e1);
+}
+
+/* CART SIDEBAR */
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: -360px; /* Sidebar awalnya tersembunyi di luar layar */
+  width: 360px;
+  height: 150%;
+  transition: 0.3s;
+  z-index: 999;
+  box-shadow: -5px 0px 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  background-color: #191919;
+  backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+.cart-sidebar.active {
+  right: 0;
+  backdrop-filter: blur(10px);
+}
+
+/* produk dalam keranjang */
+.cart-items {
+  list-style: none;
+  padding: 0;
+}
+.cart-item {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+.product-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: #fff;
+}
+.cart-total {
+  color: #fff;
+  font-weight: bold;
+}
+.cart-item-content {
+  display: flex;
+  align-items: center;
+}
+.cart-item-image {
+  max-width: 40px;
+  max-height: 40px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+.total {
+  display: flex;
+  margin-left: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkout-btn {
+  margin-right: 1rem;
+  margin-top: 20px;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(to right, #ffa500, #fff5e1);
+}
+.checkout-btn:hover {
+  background: linear-gradient(to right, #fff5e1, #ffa500);
+}
+.delete-icon {
+  color: #ff1b1b;
+  cursor: pointer;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-weight: bold;
+  font-size: 24px;
+}
+.delete-icon:hover {
+  color: darkred;
+}
+
+/* CSS untuk tombol close pada item keranjang */
+.cart-items ul li button {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-left: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  padding: 0;
+  z-index: 999;
+}
+
+/* Gaya tambahan untuk tombol "close" */
+.close-btn i {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+  flex: 0 0 auto;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #fff5e1, #ffa500);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.contact-icon i {
+  font-size: 24px;
+  color: #fff;
+}
+
+.contact-info h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.about {
+  background-color: #191919;
+  background-size: cover;
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.about-content {
+  margin-top: 5rem;
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.footer {
+  color: #fff;
+  padding: 10px 0;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+  max-width: 1200px; /* Lebar konten maksimum */
+  margin: 0 auto; /* Posisi tengah horizontal */
+}
+
+/* LOGIN */
+.login-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -1000px;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.login-container.active {
+  left: 0;
+}
+.login-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.login-card h2 {
+  margin-bottom: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+.social-login {
+  margin-top: 20px;
+}
+.close-button {
+  display: flex;
+  justify-content: end;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+/* SIGN UP */
+.sign-up-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: -1000px;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.sign-up-container.active {
+  left: 0;
+}
+.sign-up-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+.sign-up-card h2 {
+  margin-bottom: 20px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.sign-up-card input {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+.sign-up-card button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+}
+
+.back-top-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  padding: 12px;
+  z-index: 4;
+  transition: var(--transition);
+  opacity: 0;
+  visibility: hidden;
+  z-index: 999;
+  scroll-behavior: smooth;
+}
+.back-top-btn.active {
+  color: #fff;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-10px);
+}
